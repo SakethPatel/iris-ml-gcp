@@ -22,6 +22,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Install CML
+      run: npm install -g @dvcorg/cml
+
     - name: Train model
       run: python src/train.py
 
