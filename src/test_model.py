@@ -1,6 +1,6 @@
 from data_loader import load_data
 from model import train_model
-#Comment
+
 def test_model_training_and_accuracy():
     df = load_data("dataset/iris.csv")
     model, acc = train_model(df)
