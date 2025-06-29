@@ -1,7 +1,7 @@
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import accuracy_score
-#newly _ commented
+#newly_ commented
 def train_model(df):
     # Separate features and target
     X = df.iloc[:, :-1]  # Features (all columns except species)
