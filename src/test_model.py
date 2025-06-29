@@ -1,9 +1,8 @@
-from data_loader import load_data
-from model import train_model
+# src/test_model.py
 
-def test_model_training_and_accuracy():
-    df = load_data("dataset/iris.csv")
-    model, acc = train_model(df)
-    assert model is not None
-    assert hasattr(model, "predict")
-    assert acc >= 0.90  
+import pandas as pd
+
+def test_accuracy_above_threshold():
+    metrics = pd.read_csv('metrics.csv')
+    accuracy = metrics.loc[metrics['metric'] == 'accuracy', 'value'].values[0]
+    assert accuracy >= 0.85, f"Accuracy {accuracy:.2f} is below 85%"

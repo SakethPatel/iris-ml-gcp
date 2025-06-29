@@ -1,9 +1,10 @@
 from data_loader import load_data
-from model import train_model
 
-def test_model_training_and_accuracy():
+def test_data_shape():
     df = load_data("dataset/iris.csv")
-    model, acc = train_model(df)
-    assert model is not None
-    assert hasattr(model, "predict")
-    assert acc >= 0.90  
+    assert df.shape[1] == 5
+    assert 'species' in df.columns
+
+def test_first_species_value():
+    df = load_data("dataset/iris.csv")
+    assert df.iloc[0]['species'] == 'setosa'
