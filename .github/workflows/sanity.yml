@@ -28,6 +28,6 @@ jobs:
       env:
         REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        pip install cml
+        pip install "cml[dvc]" --extra-index-url https://repo.fury.io/iterative/
         cml comment create report.txt
 
