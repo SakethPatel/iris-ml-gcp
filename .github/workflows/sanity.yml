@@ -21,30 +21,25 @@ jobs:
       run: npm install -g @dvcorg/cml
 
     - name: Install dependencies
-      working-directory: week4
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
     - name: Train model
-      working-directory: week4
       run: python src/train.py
 
     - name: Evaluate model
-      working-directory: week4
       run: python src/evaluate.py
 
     - name: Run unit tests
-      working-directory: week4
       run: |
         pytest src/test_model.py | tee test_output.txt
 
     - name: Post CML report to PR
-      working-directory: week4
       env:
         REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        echo "## Test Results" > report.md 
+        echo "##  Test Results" > report.md 
         echo '```' >> report.md
         cat test_output.txt >> report.md
         echo '```' >> report.md
