@@ -44,11 +44,11 @@ jobs:
       env:
         REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        echo "## ✅ Test Results" > report.md
+        echo "## Test Results" > report.md 
         echo '```' >> report.md
         cat test_output.txt >> report.md
         echo '```' >> report.md
-        echo "## 📊 Metrics" >> report.md
+        echo "##  Metrics" >> report.md 
         cat metrics.csv >> report.md
         npx cml comment create report.md
 
